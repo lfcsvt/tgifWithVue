@@ -66,7 +66,6 @@ const app = new Vue({
             var percentage = this.congressmen.length / 100 * 10
             this.congressmen.forEach(function (congressman) {
                 result.push(congressman.missed_votes_pct)
-                console.log(congressman)
             })
             result.sort((a, b) => b - a)
             result = result.slice(0, percentage)
@@ -121,7 +120,7 @@ const app = new Vue({
 
             memberspercent = memberspercent.reduce((a, b) => a + b, 0) / members.length
             memberspercent = memberspercent.toFixed(2);
-            return memberspercent
+             return memberspercent
         },
 
         totalPercentage() {

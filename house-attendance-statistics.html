@@ -78,7 +78,7 @@
                                 <tr v-for="item in createArray">
                                     <td>{{item.name}}</td>
                                     <td>{{item.numberOfMembers}}</td>
-                                    <td>{{item.votesPercentage}}</td>
+                                    <td v-if!="NaN">{{item.votesPercentage}}</td>
                                 </tr>
                             </tbody>
                         </table>

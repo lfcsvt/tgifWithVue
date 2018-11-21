@@ -69,32 +69,32 @@ const app = new Vue({
             this.mostEngaged = this.congressmen.filter(member => member.missed_votes_pct >= breakPoint)
             return this.mostEngaged
         },
-        
-         createArray() {
-             var array = [{
-                     name: 'Democrats',
-                     numberOfMembers: this.count("D"),
-                     votesPercentage: this.percentVoted("D")
+
+        createArray() {
+            var array = [{
+                    name: 'Democrats',
+                    numberOfMembers: this.count("D"),
+                    votesPercentage: this.percentVoted("D")
                  },
-                 {
-                     name: 'Republicans',
-                     numberOfMembers: this.count("R"),
-                     votesPercentage: this.percentVoted("R")
+                {
+                    name: 'Republicans',
+                    numberOfMembers: this.count("R"),
+                    votesPercentage: this.percentVoted("R")
                  },
-                 {
-                     name: 'Independents',
-                     numberOfMembers: this.count("I"),
-                     votesPercentage: this.percentVoted("I")
+                {
+                    name: 'Independents',
+                    numberOfMembers: this.count("I"),
+                    votesPercentage: this.percentVoted("I")
                  },
-                 {
-                     name: "Total",
-                     numberOfMembers: this.count("I") + this.count("D") + this.count("R"),
-                     votesPercentage: this.totalPercentage().toFixed(2)
+                {
+                    name: "Total",
+                    numberOfMembers: this.count("I") + this.count("D") + this.count("R"),
+                    votesPercentage: this.totalPercentage().toFixed(2)
                  }
                  ]
-             return array
+            return array
 
-         }
+        }
     },
 
     methods: {
@@ -111,21 +111,24 @@ const app = new Vue({
             for (var i = 0; i < members.length; i++) {
                 memberspercent.push(members[i].votes_with_party_pct)
             }
-
             memberspercent = memberspercent.reduce((a, b) => a + b, 0) / members.length
+              if (members.length === 0){
+               return memberspercent = 0
+            }
             memberspercent = memberspercent.toFixed(2);
             return memberspercent
+            
         },
-        
+
         totalPercentage() {
-    var membersPercentTotal = []
-    for (var i = 0; i < this.congressmen.length; i++) {
-        membersPercentTotal.push(this.congressmen[i].votes_with_party_pct)
-        var result = membersPercentTotal.reduce(function (a, b) {
-            return a + b;
-        }, 0);
-    }
-    return result / this.congressmen.length
-}
+            var membersPercentTotal = []
+            for (var i = 0; i < this.congressmen.length; i++) {
+                membersPercentTotal.push(this.congressmen[i].votes_with_party_pct)
+                var result = membersPercentTotal.reduce(function (a, b) {
+                    return a + b;
+                }, 0);
+            }
+            return result / this.congressmen.length
+        }
     }
 })
