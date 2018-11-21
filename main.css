@@ -47,8 +47,8 @@ nav  {
 }
 
 .banner{
-     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('usflagShorter.jpg');
-    height: 80px;
+     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('USAflag.jpg');
+    height: 120px;
     width: auto;
 }
 
